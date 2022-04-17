@@ -54,6 +54,7 @@ app.post("/delete",function(req,res)
 
 
 //listen port ------------------------------------------------------------------------------------------------------
-app.listen(app.listen(process.env.PORT),function(){
-    console.log("app started");
+app.listen(process.env.PORT,function()
+{
+    console.log("app started on port 3000 ");
 })
