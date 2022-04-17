@@ -19,19 +19,14 @@ var arr=[];
 
 //targeting home route ----------------------------------------------------------------------------------------
 app.get("/",function(req,res){
-    console.log(req.cookies.task);
-    if(req.cookies.task)
-    res.render("main",{render:req.cookies.task});
+    console.log(arr);
+    res.render("main",{render:arr});
 
 });
 
 //post request | home route -----------------------------------------------------------------------------------
 app.post("/", function (req, res) {
     arr.push(req.body.item);
-    let options = {
-        expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000) // would expire after 1yr
-    }
-    res.cookie("task", arr, options);
     res.redirect("/");
 });
 
@@ -40,10 +35,6 @@ app.post("/delete",function(req,res)
 {
     var index = req.body.checkbox;
     arr.splice(index,1);
-    let options = {
-        expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000) // would expire after 1yr
-    }
-    res.cookie("task", arr, options);
     res.redirect("/");
 });
 
