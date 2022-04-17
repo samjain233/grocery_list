@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="//db.onlinewebfonts.com/c/261506be3344b3806eefa054f0f6fbf1?family=Tempus+Sans+ITC" rel="stylesheet" type="text/css"/>
+    <title>Grocery List</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="grocery">
+            <h1 style="text-align: center;">Grocery List</h1>
+            <br>
+            <form method="post" action="/">
+                <div style="text-align: center;">
+                    <i id="pen" class="fa-solid fa-pencil"></i><input class="input" id="Input" type="text" name="item"
+                        autocomplete="off">
+                    <br>
+                </div>
+                <button id="button" type="submit" name="btn">Add Items</button>
+            </form>
+            <br>
+            <hr>
+            
+            
+            <% var i=0 %>
+                <% render.forEach(function(item){ %>
+                    <div class="checkbox">
+                    <form action="/delete" method="post">
+                        <input id="item" type="checkbox" name="checkbox" value="<%=i%>" onChange="this.form.submit()">
+                        <label for="checkbox" id="item1">
+                            <%=item%>
+                        </label>
+                    </form>
+                    </div>
+                    <%i=i+1%>
+                <% }) %>
+        </div>
+    </div>
+</body>
+
+</html>

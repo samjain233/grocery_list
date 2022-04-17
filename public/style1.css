@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Tempus Sans ITC;
+    background-color: greenyellow;
+}
+
+.container{
+ width: 90%;
+ margin: auto;
+ display: flex;   
+}
+.grocery{
+    border: 1px solid black;
+    width: 700px;
+    min-height: 100vh;
+    margin: auto;
+    background-color: white;
+    box-shadow: 10px 20px 30px 20px rgba(0.5, 0.5, 0.5, 0.5);
+}
+.grocery h1{
+    font-size: 3rem;
+    margin-top: 1em;
+}
+.grocery i{
+    font-size: 1.5rem;
+    color: rgb(155, 223, 54);
+}
+.grocery input{
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid black;
+    font-family: Tempus Sans ITC;
+    width: 70%;
+    font-size: 1.5rem;
+}
+#button{
+    padding: 5px;
+    background-color: greenyellow;
+    color: rgb(16, 16, 16);
+    font-family: Tempus Sans ITC;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-left: 7rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+#button:hover {
+    background-color: rgb(155, 217, 127);
+}
+hr{
+    border: 2px solid rgb(125, 172, 54);
+}
+.checkbox{
+    width: 50%;
+    height: fit-content;
+    margin-top: 10px;
+    margin-left: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+input[type="checkbox"]{
+    width: 30px;
+}
+
