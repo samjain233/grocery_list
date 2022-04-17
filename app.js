@@ -14,11 +14,10 @@ app.use(express.static("public"));
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(cookieParser());
 
-//global variable
-var arr=[];
-
 //targeting home route ----------------------------------------------------------------------------------------
 app.get("/",function(req,res){
+    var arr=[];
+    arr=req.cookies.task;
     console.log(arr);
     res.render("main",{render:arr});
 
@@ -26,7 +25,13 @@ app.get("/",function(req,res){
 
 //post request | home route -----------------------------------------------------------------------------------
 app.post("/", function (req, res) {
-    arr.push(req.body.item);
+    let temparr=[];
+    temparr = req.cookies.task;
+    temparr.push(req.body.item);
+    let options = {
+        expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000) // would expire after 1yr
+    }
+    res.cookie("task", temparr, options);
     res.redirect("/");
 });
 
@@ -34,7 +39,13 @@ app.post("/", function (req, res) {
 app.post("/delete",function(req,res)
 {
     var index = req.body.checkbox;
-    arr.splice(index,1);
+    let temparr=[];
+    temparr = req.cookies.task;
+    temparr.splice(index,1);
+    let options = {
+        expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000) // would expire after 1yr
+    }
+    res.cookie("task", temparr, options);
     res.redirect("/");
 });
 
