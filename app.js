@@ -14,18 +14,14 @@ app.use(express.static("public"));
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(cookieParser());
 
-//cookie
-
-
-//array for stroing data
+//global variable
 var arr=[];
-
 
 //targeting home route ----------------------------------------------------------------------------------------
 app.get("/",function(req,res){
+    console.log(req.cookies.task);
     if(req.cookies.task)
-    arr= req.cookies.task;
-    res.render("main",{render:arr});
+    res.render("main",{render:req.cookies.task});
 
 });
 
